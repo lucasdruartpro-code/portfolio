@@ -1,0 +1,17 @@
+{
+  "prenom": "Lucas",
+  "nom": "Druart",
+  "initiales": "LD",
+  "titre_onglet": "Lucas Druart — Webdesigner",
+  "description": "Portfolio de Lucas Druart, étudiant en création numérique et webdesign à La Manu Compiègne.",
+  "menu": {
+    "apropos": "À propos",
+    "projets": "Projets",
+    "competences": "Compétences",
+    "parcours": "Parcours",
+    "contact": "Contact"
+  },
+  "pied_de_page": "conçu & codé à la main",
+  "ville_horloge": "Noyon, FR",
+  "retour_haut": "Retour en haut ↑"
+}

@@ -1,0 +1,102 @@
+{
+  "liste": [
+    {
+      "nom": "HTML",
+      "categorie": "Web",
+      "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/html5/html5-original.svg",
+      "logo_blanc": false
+    },
+    {
+      "nom": "CSS",
+      "categorie": "Web",
+      "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/css3/css3-original.svg",
+      "logo_blanc": false
+    },
+    {
+      "nom": "JavaScript",
+      "categorie": "Web",
+      "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/javascript/javascript-original.svg",
+      "logo_blanc": false
+    },
+    {
+      "nom": "PHP",
+      "categorie": "Web",
+      "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/php/php-original.svg",
+      "logo_blanc": false
+    },
+    {
+      "nom": "MySQL",
+      "categorie": "Web",
+      "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/mysql/mysql-original.svg",
+      "logo_blanc": true
+    },
+    {
+      "nom": "WordPress",
+      "categorie": "Web",
+      "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/wordpress/wordpress-plain.svg",
+      "logo_blanc": true
+    },
+    {
+      "nom": "Figma",
+      "categorie": "Design",
+      "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/figma/figma-original.svg",
+      "logo_blanc": false
+    },
+    {
+      "nom": "Photoshop",
+      "categorie": "Design",
+      "logo": "/asset/img/logos/photoshop.svg",
+      "logo_blanc": false
+    },
+    {
+      "nom": "Illustrator",
+      "categorie": "Design",
+      "logo": "/asset/img/logos/illustrator.svg",
+      "logo_blanc": false
+    },
+    {
+      "nom": "InDesign",
+      "categorie": "Design",
+      "logo": "/asset/img/logos/indesign.svg",
+      "logo_blanc": false
+    },
+    {
+      "nom": "Premiere Pro",
+      "categorie": "Design",
+      "logo": "/asset/img/logos/premiere-pro.svg",
+      "logo_blanc": false
+    },
+    {
+      "nom": "Lightroom",
+      "categorie": "Design",
+      "logo": "/asset/img/logos/lightroom.svg",
+      "logo_blanc": false
+    },
+    {
+      "nom": "DaVinci Resolve",
+      "categorie": "Design",
+      "logo": "/asset/img/logos/davinci-resolve.svg",
+      "logo_blanc": false
+    },
+    {
+      "nom": "VS Code",
+      "categorie": "Outils",
+      "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/vscode/vscode-original.svg",
+      "logo_blanc": false
+    },
+    {
+      "nom": "GitHub",
+      "categorie": "Outils",
+      "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/github/github-original.svg",
+      "logo_blanc": true
+    }
+  ],
+  "savoir_etre_titre": "Savoir-être",
+  "savoir_etre": [
+    "Travail en équipe",
+    "Gestion du rush",
+    "Relation client",
+    "Rigueur",
+    "Autonomie"
+  ]
+}

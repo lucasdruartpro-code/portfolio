@@ -1,0 +1,15 @@
+{
+  "name": "portfolio-lucas-druart",
+  "private": true,
+  "type": "module",
+  "description": "Portfolio de Lucas Druart : Eleventy + interface d'administration Decap CMS",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "cms": "PORT=8082 decap-server"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.7",
+    "decap-server": "3.11.6"
+  }
+}

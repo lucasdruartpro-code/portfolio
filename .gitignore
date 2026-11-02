@@ -1,0 +1,6 @@
+node_modules/
+_site/
+.DS_Store
+.vscode/
+# Photo d'origine : non utilisée par le site, ne pas la publier
+asset/img/D8B71D12-101F-408A-8B83-67C1E78E7C2A.PNG

@@ -1,0 +1,52 @@
+{
+  "titre_formations": "Formations",
+  "formations": [
+    {
+      "date": "2026 — 2029",
+      "en_cours": true,
+      "titre": "Bachelor Chef de projet Création numérique & Webdesign",
+      "lieu": "La Manu · Compiègne",
+      "points": []
+    },
+    {
+      "date": "2023 — 2026",
+      "en_cours": false,
+      "titre": "Bac STI2D",
+      "lieu": "Spécialité Systèmes d'Information et Numérique",
+      "points": []
+    }
+  ],
+  "titre_experiences": "Expériences",
+  "experiences": [
+    {
+      "date": "Actuellement",
+      "en_cours": false,
+      "titre": "Employé polyvalent étudiant",
+      "lieu": "Flunch",
+      "points": [
+        "Réassort des buffets et vitrines lors des pics d'affluence",
+        "Application des normes d'hygiène (méthode HACCP)"
+      ]
+    },
+    {
+      "date": "Étés 2025 & 2026",
+      "en_cours": false,
+      "titre": "Serveur saisonnier",
+      "lieu": "Le Perroquet 23",
+      "points": [
+        "Service en salle et en terrasse, prise de commande",
+        "Préparation du bar et encaissement lors des soirées"
+      ]
+    },
+    {
+      "date": "Juin 2024",
+      "en_cours": false,
+      "titre": "Stagiaire informatique / réseau",
+      "lieu": "Smart Wood",
+      "points": [
+        "Configuration de routeurs et mise en place de serveurs",
+        "Initiation au développement"
+      ]
+    }
+  ]
+}

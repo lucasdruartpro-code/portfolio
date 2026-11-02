@@ -1,0 +1,340 @@
+{# Gabarit du site : les textes viennent de src/_data, modifiables depuis /admin #}
+{% macro ligne(etape) %}
+                    <div class="timeline__item reveal">
+                        <span class="timeline__date">{{ etape.date }}{% if etape.en_cours %} · <b>En cours</b>{% endif %}</span>
+                        <h4>{{ etape.titre }}</h4>
+                        <p class="timeline__place">{{ etape.lieu }}</p>
+                        {% if etape.points and etape.points.length %}
+                        <ul>
+                            {% for point in etape.points %}<li>{{ point }}</li>{% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+{% endmacro %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.titre_onglet }}</title>
+    <meta name="description" content="{{ site.description }}">
+    <meta name="theme-color" content="#160034">
+
+    <!-- Polices : Bowlby One (titres, comme sur le CV) + Space Mono (texte) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/asset/css/styles.css">
+
+    <!-- Indique au CSS que le JS est actif (sinon tout reste visible sans animation) -->
+    <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+    <!-- ===== ÉCRAN DE CHARGEMENT ===== -->
+    <div class="loader" aria-hidden="true">
+        <div class="loader__box" data-frame>{{ site.initiales }}</div>
+        <span class="loader__count">0%</span>
+    </div>
+
+    <!-- ===== CURSEUR PERSONNALISÉ (style Figma) ===== -->
+    <div class="cursor" aria-hidden="true">
+        <svg viewBox="0 0 16 16" width="18" height="18"><path d="M1 1l5.5 13.5 2-5.5 5.5-2z"/></svg>
+        <span class="cursor__label">Vous</span>
+    </div>
+
+    <!-- Barre de progression du scroll -->
+    <div class="progress" aria-hidden="true"></div>
+
+    <!-- ===== NAVIGATION ===== -->
+    <header class="nav">
+        <a href="#accueil" class="nav__logo" data-cursor="Accueil">{{ site.initiales }}</a>
+        <nav class="nav__links">
+            <a href="#apropos"><span>01</span>{{ site.menu.apropos }}</a>
+            <a href="#projets"><span>02</span>{{ site.menu.projets }}</a>
+            <a href="#competences"><span>03</span>{{ site.menu.competences }}</a>
+            <a href="#parcours"><span>04</span>{{ site.menu.parcours }}</a>
+            <a href="#contact" class="nav__cta"><span>05</span>{{ site.menu.contact }}</a>
+        </nav>
+        <button class="nav__burger" aria-label="Ouvrir le menu" aria-expanded="false">
+            <span></span><span></span>
+        </button>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="accueil">
+        <div class="hero__text">
+            <p class="pill reveal"><span class="pill__dot"></span>{{ accueil.badge }}</p>
+
+            <h1 class="hero__name">
+                <span class="split">{{ site.prenom }}</span>
+                <span class="split">{{ site.nom }}</span>
+            </h1>
+
+            <p class="hero__role reveal">{{ accueil.role | e | nl2br }}</p>
+
+            <!-- Le mot change tout seul (voir main.js) -->
+            <p class="hero__typing reveal" aria-hidden="true">
+                <span class="hero__prompt">&gt;</span> {{ accueil.debut_phrase }} <span class="typing" data-words="{{ accueil.mots | join('|') }}"></span><span class="caret">_</span>
+            </p>
+
+            <div class="hero__buttons reveal">
+                <a href="#projets" class="btn btn--plein magnetic" data-cursor="Go !">{{ accueil.bouton_projets }}</a>
+                <a href="#contact" class="btn btn--contour magnetic" data-cursor="Écrire">{{ accueil.bouton_contact }}</a>
+            </div>
+        </div>
+
+        <div class="hero__visual reveal">
+            <!-- Cadre de sélection façon Figma (les poignées sont ajoutées en JS) -->
+            <div class="hero__frame" data-frame>
+                <span class="frame-tag">{{ accueil.photo_etiquette }}</span>
+                <span class="hero__canvas">
+                    <img src="{{ accueil.photo }}" alt="{{ accueil.photo_alt }}" class="hero__photo">
+                </span>
+                <span class="frame-size">433 × 577</span>
+            </div>
+
+            <!-- Faux curseur « Lucas » qui se balade, comme en multijoueur sur Figma -->
+            <div class="fake-cursor" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="18" height="18"><path d="M1 1l5.5 13.5 2-5.5 5.5-2z"/></svg>
+                <span>{{ accueil.nom_curseur }}</span>
+            </div>
+        </div>
+
+        <a href="#apropos" class="hero__scroll" data-cursor="Descendre">
+            <span>Scroll</span>
+            <span class="hero__scroll-line"></span>
+        </a>
+    </section>
+
+    <!-- ===== BANDEAU DÉFILANT ===== -->
+    <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee">
+        <div class="marquee__track">
+            {% for mot in accueil.bandeau %}<span>{{ mot }}</span>{% endfor %}
+            <!-- Copie pour que la boucle soit continue -->
+            {% for mot in accueil.bandeau %}<span>{{ mot }}</span>{% endfor %}
+        </div>
+    </div>
+    </div>
+
+    <main>
+
+        <!-- ===== 01 À PROPOS ===== -->
+        <section class="section about" id="apropos">
+            <div class="section__head">
+                <span class="section__num">01</span>
+                <h2 class="section__title split">{{ site.menu.apropos }}</h2>
+            </div>
+
+            <div class="about__grid">
+                <!-- Les mots s'allument un par un au scroll (voir main.js) -->
+                <blockquote class="about__quote">
+                    <span class="about__mark">“</span>
+                    <p class="words" data-keys="{{ apropos.mots_cles | join('|') }}">{{ apropos.citation }}</p>
+                </blockquote>
+
+                <div class="about__side">
+                    <ul class="about__infos reveal">
+                        <li>
+                            <span class="icon-box"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+                            {{ apropos.lieu }}
+                        </li>
+                        <li>
+                            <span class="icon-box"><svg viewBox="0 0 24 24"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11.5V16c0 1.5 2.2 3 5 3s5-1.5 5-3v-4.5"/></svg></span>
+                            {{ apropos.ecole }}
+                        </li>
+                        <li>
+                            <span class="icon-box"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14"/><path d="M3 6l9 7 9-7"/></svg></span>
+                            {{ contact.email }}
+                        </li>
+                    </ul>
+
+                    <ul class="about__stats reveal">
+                        {% for chiffre in apropos.chiffres %}
+                        <li><strong class="counter" data-target="{{ chiffre.valeur }}"{% if chiffre.depart %} data-start="{{ chiffre.depart }}"{% endif %}>{{ chiffre.depart or 0 }}</strong>{{ chiffre.libelle }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 02 PROJETS ===== -->
+        <section class="section projects" id="projets">
+            <div class="section__head">
+                <span class="section__num">02</span>
+                <h2 class="section__title split">{{ site.menu.projets }}</h2>
+                <span class="section__count">({{ projets.liste.length | deuxChiffres }})</span>
+            </div>
+
+            <div class="projects__stack">
+
+                {% for projet in projets.liste %}
+                <details class="project reveal">
+                    <summary class="project__head" data-cursor="Ouvrir / fermer">
+                        <span class="project__num">{{ loop.index | deuxChiffres }}</span>
+                        <h3>{{ projet.nom }}</h3>
+                        <span class="project__type">{{ projet.type }}</span>
+                        <span class="project__toggle" aria-hidden="true"></span>
+                    </summary>
+                    <div class="project__body">
+                        <a href="{{ projet.lien or '#' }}" class="project__screen" data-frame data-cursor="Voir le projet">
+                            <span class="project__bar"><i></i><i></i><i></i><em>{{ projet.adresse }}</em></span>
+                            {% if projet.image %}
+                            <span class="project__img"><img src="{{ projet.image }}" alt="{{ projet.image_alt }}" loading="lazy"></span>
+                            {% else %}
+                            <!-- Sans image : une planche avec le nom et le slogan du projet -->
+                            <span class="project__img brand">
+                                <span class="brand__name">{{ projet.nom }}</span>
+                                {% if projet.slogan %}<span class="brand__slogan">{{ projet.slogan }}</span>{% endif %}
+                            </span>
+                            {% endif %}
+                        </a>
+                        <div class="project__info">
+                            <p>{{ projet.description }}</p>
+                            <ul class="tags">{% for tag in projet.tags %}<li>{{ tag }}</li>{% endfor %}</ul>
+                        </div>
+                    </div>
+                </details>
+                {% endfor %}
+
+            </div>
+        </section>
+
+        <!-- ===== 03 COMPÉTENCES ===== -->
+        <section class="section skills" id="competences">
+            <div class="section__head">
+                <span class="section__num">03</span>
+                <h2 class="section__title split">{{ site.menu.competences }}</h2>
+            </div>
+
+            <!-- Filtres (voir main.js) -->
+            <div class="skills__filters reveal" role="group" aria-label="Filtrer les compétences">
+                <button class="filter is-active" data-filter="tout">Tout</button>
+                {% for categorie in competences.liste | categories %}
+                <button class="filter" data-filter="{{ categorie | slugify }}">{{ categorie }}</button>
+                {% endfor %}
+            </div>
+
+            <ul class="skills__grid">
+                {% for competence in competences.liste %}
+                <li class="skill reveal" data-cat="{{ competence.categorie | slugify }}">{% if competence.logo %}<img{% if competence.logo_blanc %} class="skill__clair"{% endif %} src="{{ competence.logo }}" alt="">{% endif %}{{ competence.nom }}</li>
+                {% endfor %}
+            </ul>
+
+            <!-- Savoir-être tirés des expériences pro -->
+            <div class="skills__soft reveal">
+                <p>{{ competences.savoir_etre_titre }}</p>
+                <ul class="tags tags--jaune">
+                    {% for qualite in competences.savoir_etre %}<li>{{ qualite }}</li>{% endfor %}
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===== 04 PARCOURS ===== -->
+        <section class="section path" id="parcours">
+            <div class="section__head">
+                <span class="section__num">04</span>
+                <h2 class="section__title split">{{ site.menu.parcours }}</h2>
+            </div>
+
+            <div class="path__grid">
+                <div class="timeline">
+                    <h3 class="timeline__title">{{ parcours.titre_formations }}</h3>
+                    <span class="timeline__track"><span class="timeline__fill"></span></span>
+
+                    {% for etape in parcours.formations %}{{ ligne(etape) }}{% endfor %}
+                </div>
+
+                <div class="timeline">
+                    <h3 class="timeline__title">{{ parcours.titre_experiences }}</h3>
+                    <span class="timeline__track"><span class="timeline__fill"></span></span>
+
+                    {% for etape in parcours.experiences %}{{ ligne(etape) }}{% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 05 CONTACT ===== -->
+        <section class="section contact" id="contact">
+            <span class="section__num">05 — {{ site.menu.contact }}</span>
+            <h2 class="contact__title">
+                <span class="split">{{ contact.titre_ligne_1 }}</span>
+                <span class="split contact__outline">{{ contact.titre_ligne_2 }}</span>
+            </h2>
+
+            <div class="contact__grid">
+
+                <!-- Formulaire : les messages sont envoyés par FormSubmit vers l'adresse ci-dessous
+                     (le tout premier envoi déclenche un email d'activation à valider) -->
+                <form class="form reveal" action="https://formsubmit.co/{{ contact.email }}" method="POST" novalidate>
+                    <!-- Réglages FormSubmit -->
+                    <input type="hidden" name="_subject" value="{{ contact.formulaire.objet_mail }}">
+                    <input type="hidden" name="_template" value="table">
+                    <!-- Piège à robots : un humain ne voit pas ce champ et le laisse vide -->
+                    <input type="text" name="_honey" class="form__piege" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                    <fieldset class="form__sujets">
+                        <legend>{{ contact.formulaire.question }}</legend>
+                        {% for sujet in contact.formulaire.sujets %}
+                        <label><input type="radio" name="Objet" value="{{ sujet.valeur }}"{% if loop.first %} checked{% endif %}><span>{{ sujet.libelle }}</span></label>
+                        {% endfor %}
+                    </fieldset>
+
+                    <div class="form__ligne">
+                        <div class="form__champ">
+                            <label for="nom">Nom &amp; prénom</label>
+                            <input type="text" id="nom" name="Nom" autocomplete="name" placeholder="Jean Dupont" required>
+                            <span class="form__erreur">Indiquez votre nom.</span>
+                        </div>
+                        <div class="form__champ">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" autocomplete="email" placeholder="jean@exemple.fr" required>
+                            <span class="form__erreur">Indiquez un email valide.</span>
+                        </div>
+                    </div>
+
+                    <div class="form__champ">
+                        <label for="entreprise">Entreprise <em>(facultatif)</em></label>
+                        <input type="text" id="entreprise" name="Entreprise" autocomplete="organization" placeholder="Nom de l'entreprise ou de l'école">
+                    </div>
+
+                    <div class="form__champ">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="Message" rows="6" placeholder="{{ contact.formulaire.exemple_message }}" required minlength="10"></textarea>
+                        <span class="form__erreur">Écrivez au moins quelques mots (10 caractères).</span>
+                    </div>
+
+                    <div class="form__bas">
+                        <button type="submit" class="btn btn--plein magnetic form__envoyer" data-cursor="Envoyer">{{ contact.formulaire.bouton }}</button>
+                        <p class="form__statut" role="status" aria-live="polite"></p>
+                    </div>
+                </form>
+
+                <aside class="contact__aside reveal">
+                    <p class="contact__label">{{ contact.titre_direct }}</p>
+                    <a href="mailto:{{ contact.email }}" class="contact__mail" data-cursor="Écrire">{{ contact.email }}</a>
+                    <button class="btn btn--contour contact__copy magnetic" data-email="{{ contact.email }}">Copier l'adresse</button>
+
+                    <p class="contact__label">{{ contact.titre_reseaux }}</p>
+                    <ul class="contact__socials">
+                        {% for reseau in contact.reseaux %}
+                        <li><a href="{{ reseau.lien }}" target="_blank" rel="noopener" data-cursor="{{ reseau.nom }}">{{ reseau.nom }} ↗</a></li>
+                        {% endfor %}
+                    </ul>
+                </aside>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <span>© <span id="annee"></span> {{ site.prenom }} {{ site.nom }} — {{ site.pied_de_page }}</span>
+        <span>{{ site.ville_horloge }} · <span id="heure">--:--</span></span>
+        <a href="#accueil" data-cursor="Tout en haut">{{ site.retour_haut }}</a>
+    </footer>
+
+    <script src="/asset/js/main.js"></script>
+</body>
+</html>

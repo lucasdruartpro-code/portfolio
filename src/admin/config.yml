@@ -1,0 +1,199 @@
+# Interface d'administration du portfolio (Decap CMS)
+# Chaque formulaire ci-dessous modifie un fichier de src/_data. Les chemins partent de la racine du dépôt GitHub.
+# Documentation : https://decapcms.org/docs/configuration-options/
+
+backend:
+  name: github # connexion avec le compte GitHub : seuls les comptes autorisés sur le dépôt peuvent modifier
+  repo: lucasdruartpro-code/portfolio
+  branch: main # branche publiée par Netlify
+
+# En local : « npm run cms » puis « npm start », et l'administration écrit directement dans les fichiers
+local_backend:
+  url: http://localhost:8082/api/v1 # port 8082 : le 8081 sert à l'administration d'H2O
+
+locale: fr
+site_url: /
+display_url: /
+
+# Les images envoyées depuis l'administration sont rangées ici
+media_folder: asset/img/uploads
+public_folder: /asset/img/uploads
+
+collections:
+  - name: contenu
+    label: Contenu du site
+    editor: { preview: false }
+    files:
+      # ---------------------------------------------------------------- Projets
+      - name: projets
+        label: Projets
+        file: src/_data/projets.json
+        fields:
+          - label: Projets
+            name: liste
+            label_singular: projet
+            widget: list
+            summary: "{{fields.nom}} — {{fields.type}}"
+            hint: Glisse un projet pour changer l'ordre. Les numéros et le total se mettent à jour tout seuls.
+            fields:
+              - { label: Nom, name: nom, widget: string }
+              - { label: Type et année, name: type, widget: string, hint: "Exemple : E-commerce · 2026" }
+              - { label: Description, name: description, widget: text }
+              - { label: Tags, name: tags, widget: list, required: false, hint: Sépare les tags par des virgules. }
+              - { label: Image, name: image, widget: image, required: false, hint: "Sans image, le site affiche une planche avec le nom et le slogan." }
+              - { label: Description de l'image, name: image_alt, widget: string, required: false, hint: Pour les personnes qui n'ont pas accès à l'image. }
+              - { label: Slogan, name: slogan, widget: string, required: false, hint: Affiché seulement s'il n'y a pas d'image. }
+              - { label: Lien du projet, name: lien, widget: string, default: "#", hint: "L'adresse complète, qui commence par https://. Laisse # s'il n'y en a pas encore." }
+              - { label: Texte de la barre d'adresse, name: adresse, widget: string, hint: "Le texte affiché au-dessus de l'image, comme le nom du site." }
+
+      # ---------------------------------------------------------------- Compétences
+      - name: competences
+        label: Compétences
+        file: src/_data/competences.json
+        fields:
+          - label: Compétences
+            name: liste
+            label_singular: compétence
+            widget: list
+            summary: "{{fields.nom}} ({{fields.categorie}})"
+            fields:
+              - { label: Nom, name: nom, widget: string }
+              - { label: Catégorie, name: categorie, widget: string, hint: "Écris-la toujours de la même façon (Web, Design, Outils…). Une nouvelle catégorie crée un nouveau bouton de filtre." }
+              - { label: Logo, name: logo, widget: image, required: false }
+              - { label: Afficher le logo en blanc, name: logo_blanc, widget: boolean, default: false, required: false, hint: À activer si le logo est trop sombre sur le fond violet. }
+          - { label: Titre des savoir-être, name: savoir_etre_titre, widget: string }
+          - { label: Savoir-être, name: savoir_etre, widget: list, hint: Sépare-les par des virgules. }
+
+      # ---------------------------------------------------------------- Parcours
+      - name: parcours
+        label: Parcours
+        file: src/_data/parcours.json
+        fields:
+          - { label: Titre de la colonne Formations, name: titre_formations, widget: string }
+          - &etapes
+            label: Formations
+            name: formations
+            label_singular: formation
+            widget: list
+            summary: "{{fields.date}} — {{fields.titre}}"
+            fields:
+              - { label: Date, name: date, widget: string }
+              - { label: Afficher « En cours », name: en_cours, widget: boolean, default: false, required: false }
+              - { label: Titre, name: titre, widget: string }
+              - { label: Lieu ou précision, name: lieu, widget: string }
+              - label: Détails
+                name: points
+                label_singular: détail
+                widget: list
+                required: false
+                field: { label: Détail, name: point, widget: string }
+          - { label: Titre de la colonne Expériences, name: titre_experiences, widget: string }
+          - <<: *etapes
+            label: Expériences
+            name: experiences
+            label_singular: expérience
+
+      # ---------------------------------------------------------------- Accueil
+      - name: accueil
+        label: Accueil
+        file: src/_data/accueil.json
+        fields:
+          - { label: Badge en haut, name: badge, widget: string }
+          - { label: Rôle sous le nom, name: role, widget: text }
+          - { label: Début de la phrase animée, name: debut_phrase, widget: string, hint: "Le texte avant les mots qui changent, par exemple « je suis »." }
+          - label: Mots qui s'écrivent tout seuls
+            name: mots
+            label_singular: mot
+            widget: list
+            min: 1
+            field: { label: Mot, name: mot, widget: string }
+          - { label: Bouton vers les projets, name: bouton_projets, widget: string }
+          - { label: Bouton vers le contact, name: bouton_contact, widget: string }
+          - { label: Photo, name: photo, widget: image, hint: Une image au fond transparent (PNG) rend le mieux. }
+          - { label: Description de la photo, name: photo_alt, widget: string }
+          - { label: Étiquette au-dessus de la photo, name: photo_etiquette, widget: string }
+          - { label: Nom du curseur qui se promène, name: nom_curseur, widget: string }
+          - label: Bandeau qui défile
+            name: bandeau
+            label_singular: texte
+            widget: list
+            min: 1
+            field: { label: Texte, name: texte, widget: string }
+
+      # ---------------------------------------------------------------- À propos
+      - name: apropos
+        label: À propos
+        file: src/_data/apropos.json
+        fields:
+          - { label: Présentation, name: citation, widget: text }
+          - { label: Mots en jaune, name: mots_cles, widget: list, required: false, hint: "Les mots de la présentation à mettre en jaune, séparés par des virgules." }
+          - { label: Lieu, name: lieu, widget: string }
+          - { label: École, name: ecole, widget: string }
+          - label: Chiffres
+            name: chiffres
+            label_singular: chiffre
+            widget: list
+            summary: "{{fields.valeur}} {{fields.libelle}}"
+            fields:
+              - { label: Valeur, name: valeur, widget: number, value_type: int }
+              - { label: Texte, name: libelle, widget: string }
+              - { label: Point de départ de l'animation, name: depart, widget: number, value_type: int, required: false, hint: "Utile pour une année : 2000 fait monter le compteur de 2000 à 2029." }
+
+      # ---------------------------------------------------------------- Contact
+      - name: contact
+        label: Contact
+        file: src/_data/contact.json
+        fields:
+          - { label: Titre (ligne 1), name: titre_ligne_1, widget: string }
+          - { label: Titre (ligne 2), name: titre_ligne_2, widget: string }
+          - { label: Adresse email, name: email, widget: string, hint: "Reçoit les messages du formulaire. Si tu la changes, FormSubmit enverra un nouveau mail d'activation." }
+          - label: Formulaire
+            name: formulaire
+            widget: object
+            fields:
+              - { label: Objet du mail reçu, name: objet_mail, widget: string }
+              - { label: Question au-dessus des choix, name: question, widget: string }
+              - label: Choix
+                name: sujets
+                label_singular: choix
+                widget: list
+                min: 1
+                summary: "{{fields.libelle}}"
+                fields:
+                  - { label: Texte affiché, name: libelle, widget: string }
+                  - { label: Mot reçu dans le mail, name: valeur, widget: string }
+              - { label: Exemple dans le champ Message, name: exemple_message, widget: string }
+              - { label: Texte du bouton d'envoi, name: bouton, widget: string }
+          - { label: Titre au-dessus de l'email, name: titre_direct, widget: string }
+          - { label: Titre au-dessus des réseaux, name: titre_reseaux, widget: string }
+          - label: Réseaux
+            name: reseaux
+            label_singular: réseau
+            widget: list
+            summary: "{{fields.nom}}"
+            fields:
+              - { label: Nom, name: nom, widget: string }
+              - { label: Lien, name: lien, widget: string, hint: "L'adresse complète, qui commence par https://." }
+
+      # ---------------------------------------------------------------- Réglages
+      - name: site
+        label: Réglages généraux
+        file: src/_data/site.json
+        fields:
+          - { label: Prénom, name: prenom, widget: string }
+          - { label: Nom, name: nom, widget: string }
+          - { label: Initiales, name: initiales, widget: string }
+          - { label: Titre de l'onglet, name: titre_onglet, widget: string }
+          - { label: Description pour Google, name: description, widget: text }
+          - label: Titres du menu et des sections
+            name: menu
+            widget: object
+            fields:
+              - { label: À propos, name: apropos, widget: string }
+              - { label: Projets, name: projets, widget: string }
+              - { label: Compétences, name: competences, widget: string }
+              - { label: Parcours, name: parcours, widget: string }
+              - { label: Contact, name: contact, widget: string }
+          - { label: Texte du pied de page, name: pied_de_page, widget: string }
+          - { label: Ville à côté de l'horloge, name: ville_horloge, widget: string }
+          - { label: Lien de retour en haut, name: retour_haut, widget: string }

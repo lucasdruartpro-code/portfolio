@@ -1,0 +1,45 @@
+{
+  "titre_ligne_1": "Travaillons",
+  "titre_ligne_2": "ensemble",
+  "email": "lucasdruart.pro@gmail.com",
+  "formulaire": {
+    "objet_mail": "Nouveau message depuis le portfolio",
+    "question": "Vous me contactez pour…",
+    "sujets": [
+      {
+        "libelle": "Un stage",
+        "valeur": "Stage"
+      },
+      {
+        "libelle": "Une alternance",
+        "valeur": "Alternance"
+      },
+      {
+        "libelle": "Un projet",
+        "valeur": "Projet"
+      },
+      {
+        "libelle": "Autre",
+        "valeur": "Autre"
+      }
+    ],
+    "exemple_message": "Parlez-moi de votre projet…",
+    "bouton": "Envoyer le message →"
+  },
+  "titre_direct": "Ou directement",
+  "titre_reseaux": "Ailleurs",
+  "reseaux": [
+    {
+      "nom": "GitHub",
+      "lien": "#"
+    },
+    {
+      "nom": "LinkedIn",
+      "lien": "#"
+    },
+    {
+      "nom": "Behance",
+      "lien": "#"
+    }
+  ]
+}

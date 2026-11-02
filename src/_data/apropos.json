@@ -1,0 +1,11 @@
+{
+  "citation": "Créatif avant tout, je conçois des interfaces pensées pour les personnes qui vont les utiliser. Je suis convaincu qu'un bon design ne s'arrête pas à l'esthétique : il doit guider l'utilisateur naturellement. J'aime marier la technique et le visuel pour créer des parcours digitaux fluides, modernes et agréables.",
+  "mots_cles": ["interfaces", "design", "technique", "visuel"],
+  "lieu": "Noyon, France",
+  "ecole": "La Manu, Compiègne",
+  "chiffres": [
+    { "valeur": 15, "libelle": "outils & logiciels" },
+    { "valeur": 3, "libelle": "expériences pro" },
+    { "valeur": 2029, "depart": 2000, "libelle": "diplôme visé" }
+  ]
+}

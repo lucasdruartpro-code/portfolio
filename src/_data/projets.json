@@ -1,0 +1,33 @@
+{
+  "liste": [
+    {
+      "nom": "Stepforge",
+      "type": "E-commerce · 2026",
+      "adresse": "stepforge.fr",
+      "lien": "#",
+      "image": "/asset/img/projets/stepforge.jpg",
+      "image_alt": "Page d'accueil du site Stepforge : une sneaker rouge et noire et le titre Walk the future",
+      "description": "Site e-commerce pour une marque de sneakers premium : hero immersif, boutique, bandeau de marques et mise en page responsive.",
+      "tags": ["HTML", "CSS", "Responsive"]
+    },
+    {
+      "nom": "Les Étangs H2O",
+      "type": "Site client · 2026",
+      "adresse": "les-etangs-h2o",
+      "lien": "#",
+      "image": "/asset/img/projets/h2o.jpg",
+      "image_alt": "Site des Étangs H2O : photos aériennes des étangs et de pêcheurs avec leurs carpes, titre Les Étangs H2O 60400 Varesnes",
+      "description": "Site d'un domaine de pêche à Varesnes : maquette et design system, puis un site que le client met à jour lui-même (actualités, tarifs, galerie) depuis une interface d'administration.",
+      "tags": ["Design system", "Eleventy", "Decap CMS", "Netlify"]
+    },
+    {
+      "nom": "Menta One",
+      "type": "Identité visuelle · Projet de groupe",
+      "adresse": "menta-one — identité",
+      "lien": "#",
+      "slogan": "One mind, One goal",
+      "description": "Logo d'une marque fictive d'accessoires d'entraînement, créé à trois : cahier des charges, valeurs (détermination, discipline, progression), choix graphiques justifiés et analyse sémiologique.",
+      "tags": ["Logo", "Branding", "Sémiologie", "Travail d'équipe"]
+    }
+  ]
+}

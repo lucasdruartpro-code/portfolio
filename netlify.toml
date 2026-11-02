@@ -1,0 +1,7 @@
+# Mise en ligne sur Netlify : Eleventy construit le site dans _site
+[build]
+  command = "npm run build"
+  publish = "_site"
+
+[build.environment]
+  NODE_VERSION = "22"
