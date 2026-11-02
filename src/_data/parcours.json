@@ -20,7 +20,7 @@
   "experiences": [
     {
       "date": "Actuellement",
-      "en_cours": false,
+      "en_cours": true,
       "titre": "Employé polyvalent étudiant",
       "lieu": "Flunch",
       "points": [
