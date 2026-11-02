@@ -3,6 +3,7 @@
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("asset");
   eleventyConfig.addPassthroughCopy("src/admin");
+  eleventyConfig.addPassthroughCopy({ "asset/img/favicon.ico": "favicon.ico" });
 
   // 3 → « 03 »
   eleventyConfig.addFilter("deuxChiffres", (n) => String(n).padStart(2, "0"));
