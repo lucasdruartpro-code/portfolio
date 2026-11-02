@@ -266,14 +266,13 @@
 
             <div class="contact__grid">
 
-                <!-- Formulaire : les messages sont envoyés par FormSubmit vers l'adresse ci-dessous
-                     (le tout premier envoi déclenche un email d'activation à valider) -->
-                <form class="form reveal" action="https://formsubmit.co/{{ contact.email }}" method="POST" novalidate>
-                    <!-- Réglages FormSubmit -->
-                    <input type="hidden" name="_subject" value="{{ contact.formulaire.objet_mail }}">
-                    <input type="hidden" name="_template" value="table">
+                <!-- Formulaire : Netlify repère cette balise à la mise en ligne et reçoit les messages
+                     (ils sont visibles dans Netlify, onglet Forms, et envoyés par mail si la notification est activée) -->
+                <form class="form reveal" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+                    <input type="hidden" name="form-name" value="contact">
+                    <input type="hidden" name="subject" value="{{ contact.formulaire.objet_mail }}" data-remove-prefix>
                     <!-- Piège à robots : un humain ne voit pas ce champ et le laisse vide -->
-                    <input type="text" name="_honey" class="form__piege" tabindex="-1" autocomplete="off" aria-hidden="true">
+                    <input type="text" name="bot-field" class="form__piege" tabindex="-1" autocomplete="off" aria-hidden="true">
 
                     <fieldset class="form__sujets">
                         <legend>{{ contact.formulaire.question }}</legend>

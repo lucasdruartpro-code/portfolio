@@ -321,7 +321,7 @@ boutonCopie.addEventListener('click', async () => {
 });
 
 // ===== Formulaire de contact =====
-// Envoi sans quitter la page grâce à l'adresse « ajax » de FormSubmit
+// Envoi sans quitter la page : Netlify reçoit les messages (voir la balise <form> du gabarit)
 const formulaire = document.querySelector('.form');
 const statut = formulaire.querySelector('.form__statut');
 const boutonEnvoi = formulaire.querySelector('.form__envoyer');
@@ -342,14 +342,18 @@ formulaire.addEventListener('submit', async (e) => {
     statut.className = 'form__statut';
     statut.textContent = '';
 
+    // Si le service ne répond pas à temps, on abandonne au lieu de rester bloqué
+    const limite = new AbortController();
+    const minuteur = setTimeout(() => limite.abort(), 30000);
+
     try {
-        const reponse = await fetch(formulaire.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
+        const reponse = await fetch('/', {
             method: 'POST',
-            headers: { Accept: 'application/json' },
-            body: new FormData(formulaire),
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(new FormData(formulaire)),
+            signal: limite.signal,
         });
-        const resultat = await reponse.json();
-        if (!reponse.ok || resultat.success === 'false') throw new Error(resultat.message);
+        if (!reponse.ok) throw new Error(reponse.status);
 
         statut.classList.add('is-ok');
         statut.textContent = 'Message envoyé ✓ Je vous réponds très vite.';
@@ -360,6 +364,7 @@ formulaire.addEventListener('submit', async (e) => {
         statut.textContent = "L'envoi a échoué. Écrivez-moi directement à l'adresse ci-contre.";
     }
 
+    clearTimeout(minuteur);
     boutonEnvoi.disabled = false;
     boutonEnvoi.textContent = texteBouton;
 });

@@ -146,7 +146,7 @@ collections:
         fields:
           - { label: Titre (ligne 1), name: titre_ligne_1, widget: string }
           - { label: Titre (ligne 2), name: titre_ligne_2, widget: string }
-          - { label: Adresse email, name: email, widget: string, hint: "Reçoit les messages du formulaire. Si tu la changes, FormSubmit enverra un nouveau mail d'activation." }
+          - { label: Adresse email, name: email, widget: string, hint: "L'adresse affichée sur le site. Celle qui reçoit les messages du formulaire se règle dans Netlify (Forms, puis Form notifications)." }
           - label: Formulaire
             name: formulaire
             widget: object
