@@ -182,7 +182,9 @@
                         <span class="project__toggle" aria-hidden="true"></span>
                     </summary>
                     <div class="project__body">
-                        <a href="{{ projet.lien or '#' }}" class="project__screen" data-frame data-cursor="Voir le projet">
+                        {# Sans adresse (lien vide ou #), l'image n'est pas cliquable #}
+                        {% set enLigne = projet.lien and projet.lien != '#' %}
+                        <{{ 'a' if enLigne else 'div' }}{% if enLigne %} href="{{ projet.lien }}" target="_blank" rel="noopener" data-cursor="Voir le projet"{% endif %} class="project__screen" data-frame>
                             <span class="project__bar"><i></i><i></i><i></i><em>{{ projet.adresse }}</em></span>
                             {% if projet.image %}
                             <span class="project__img"><img src="{{ projet.image }}" alt="{{ projet.image_alt }}" loading="lazy"></span>
@@ -193,7 +195,7 @@
                                 {% if projet.slogan %}<span class="brand__slogan">{{ projet.slogan }}</span>{% endif %}
                             </span>
                             {% endif %}
-                        </a>
+                        </{{ 'a' if enLigne else 'div' }}>
                         <div class="project__info">
                             <p>{{ projet.description }}</p>
                             <ul class="tags">{% for tag in projet.tags %}<li>{{ tag }}</li>{% endfor %}</ul>
