@@ -5,8 +5,8 @@
   "mots": ["webdesigner", "créatif", "futur chef de projet", "passionné d'UI"],
   "bouton_projets": "Voir mes projets",
   "bouton_contact": "Me contacter",
-  "photo": "/asset/img/lucas-detoure.png",
-  "photo_alt": "Lucas Druart en costume noir, assis dans un fauteuil",
+  "photo": "/asset/img/lucas-portrait.png",
+  "photo_alt": "Portrait de Lucas Druart en costume noir, chemise blanche et cravate noire",
   "photo_etiquette": "lucas.png",
   "nom_curseur": "Lucas",
   "bandeau": ["Webdesign", "UI / UX", "HTML & CSS", "JavaScript", "Figma", "WordPress", "Photoshop", "Illustrator", "Premiere Pro"]
