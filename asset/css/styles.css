@@ -286,6 +286,24 @@ summary:focus-visible {
     color: var(--jaune);
 }
 
+/* La section en cours (voir main.js) */
+.nav__links a[aria-current] {
+    color: var(--jaune);
+}
+
+.nav__links a[aria-current]:not(.nav__cta)::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 -6px 0;
+    height: 2px;
+    background: var(--jaune);
+}
+
+.nav__links .nav__cta[aria-current] {
+    background: var(--violet);
+    color: #fff;
+}
+
 .nav__links .nav__cta {
     padding: 8px 16px;
     border: 2px solid var(--violet);

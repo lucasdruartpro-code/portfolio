@@ -242,6 +242,22 @@ document.querySelectorAll('.nav__links a').forEach((lien) => {
     });
 });
 
+// ===== Menu : on souligne la section qui passe au milieu de l'écran =====
+const observateurMenu = new IntersectionObserver((entrees) => {
+    entrees.forEach((entree) => {
+        const lien = document.querySelector(`.nav__links a[href="#${entree.target.id}"]`);
+        if (entree.isIntersecting) {
+            lien.setAttribute('aria-current', 'true');
+        } else {
+            lien.removeAttribute('aria-current');
+        }
+    });
+}, { rootMargin: '-50% 0px -50% 0px' });
+
+document.querySelectorAll('.nav__links a').forEach((lien) => {
+    observateurMenu.observe(document.querySelector(lien.getAttribute('href')));
+});
+
 // ===== Effets à la souris (ordinateur uniquement) =====
 if (sourisPrecise && !mouvementReduit) {
     html.classList.add('has-cursor');
