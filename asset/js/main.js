@@ -346,11 +346,15 @@ formulaire.addEventListener('submit', async (e) => {
     const limite = new AbortController();
     const minuteur = setTimeout(() => limite.abort(), 30000);
 
+    // Le remplissage automatique du navigateur peut remplir le piège à robots, et Netlify jetterait le message
+    const donnees = new FormData(formulaire);
+    donnees.delete('bot-field');
+
     try {
         const reponse = await fetch('/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams(new FormData(formulaire)),
+            body: new URLSearchParams(donnees),
             signal: limite.signal,
         });
         if (!reponse.ok) throw new Error(reponse.status);
