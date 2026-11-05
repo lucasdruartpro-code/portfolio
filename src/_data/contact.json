@@ -31,15 +31,11 @@
   "reseaux": [
     {
       "nom": "GitHub",
-      "lien": "#"
+      "lien": "https://github.com/lucasdruartpro-code"
     },
     {
       "nom": "LinkedIn",
-      "lien": "#"
-    },
-    {
-      "nom": "Behance",
-      "lien": "#"
+      "lien": "https://www.linkedin.com/in/lucas-druart-2a49093aa/"
     }
   ]
 }
