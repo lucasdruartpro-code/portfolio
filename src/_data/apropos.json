@@ -3,6 +3,7 @@
   "mots_cles": ["interfaces", "design", "technique", "visuel"],
   "lieu": "Noyon, France",
   "ecole": "La Manu, Compiègne",
+  "statut": "Stage du 26 avril au 18 juin 2027, puis alternance",
   "chiffres": [
     { "valeur": 15, "libelle": "outils & logiciels" },
     { "valeur": 3, "libelle": "expériences pro" },

@@ -129,6 +129,7 @@ collections:
           - { label: Mots en jaune, name: mots_cles, widget: list, required: false, hint: "Les mots de la présentation à mettre en jaune, séparés par des virgules." }
           - { label: Lieu, name: lieu, widget: string }
           - { label: École, name: ecole, widget: string }
+          - { label: Ce que je recherche, name: statut, widget: string, required: false, hint: "Laisse vide pour ne pas l'afficher." }
           - label: Chiffres
             name: chiffres
             label_singular: chiffre

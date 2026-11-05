@@ -148,6 +148,12 @@
                             <span class="icon-box"><svg viewBox="0 0 24 24"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11.5V16c0 1.5 2.2 3 5 3s5-1.5 5-3v-4.5"/></svg></span>
                             {{ apropos.ecole }}
                         </li>
+                        {% if apropos.statut %}
+                        <li>
+                            <span class="icon-box"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13"/><path d="M8 7V4h8v3"/><path d="M3 12h18"/></svg></span>
+                            {{ apropos.statut }}
+                        </li>
+                        {% endif %}
                         <li>
                             <span class="icon-box"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14"/><path d="M3 6l9 7 9-7"/></svg></span>
                             {{ contact.email }}
