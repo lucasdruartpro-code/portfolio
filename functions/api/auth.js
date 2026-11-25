@@ -13,7 +13,7 @@ export async function onRequestGet({ request, env }) {
     const etat = crypto.randomUUID();
 
     const github = new URL("https://github.com/login/oauth/authorize");
-    github.searchParams.set("client_id", env.GITHUB_CLIENT_ID);
+    github.searchParams.set("client_id", env.GITHUB_CLIENT_ID.trim());
     github.searchParams.set("redirect_uri", `${url.origin}/api/callback`);
     github.searchParams.set("scope", url.searchParams.get("scope") || "repo,user");
     github.searchParams.set("state", etat);

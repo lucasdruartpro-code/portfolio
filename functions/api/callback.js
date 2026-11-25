@@ -41,8 +41,9 @@ export async function onRequestGet({ request, env }) {
         method: "POST",
         headers: { Accept: "application/json", "Content-Type": "application/json", "User-Agent": "portfolio-admin" },
         body: JSON.stringify({
-            client_id: env.GITHUB_CLIENT_ID,
-            client_secret: env.GITHUB_CLIENT_SECRET,
+            client_id: (env.GITHUB_CLIENT_ID || "").trim(),
+            // trim : enlève un espace ou un retour à la ligne collé par erreur avec la clé
+            client_secret: (env.GITHUB_CLIENT_SECRET || "").trim(),
             code,
             redirect_uri: `${url.origin}/api/callback`,
         }),
