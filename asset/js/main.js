@@ -337,7 +337,7 @@ boutonCopie.addEventListener('click', async () => {
 });
 
 // ===== Formulaire de contact =====
-// Envoi sans quitter la page : Netlify reçoit les messages (voir la balise <form> du gabarit)
+// Envoi sans quitter la page : Web3Forms reçoit les messages et les envoie par mail
 const formulaire = document.querySelector('.form');
 const statut = formulaire.querySelector('.form__statut');
 const boutonEnvoi = formulaire.querySelector('.form__envoyer');
@@ -362,18 +362,15 @@ formulaire.addEventListener('submit', async (e) => {
     const limite = new AbortController();
     const minuteur = setTimeout(() => limite.abort(), 30000);
 
-    // Le remplissage automatique du navigateur peut remplir le piège à robots, et Netlify jetterait le message
-    const donnees = new FormData(formulaire);
-    donnees.delete('bot-field');
-
     try {
-        const reponse = await fetch('/', {
+        const reponse = await fetch(formulaire.action, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams(donnees),
+            headers: { Accept: 'application/json' },
+            body: new FormData(formulaire),
             signal: limite.signal,
         });
-        if (!reponse.ok) throw new Error(reponse.status);
+        const resultat = await reponse.json();
+        if (!reponse.ok || !resultat.success) throw new Error(resultat.message || reponse.status);
 
         statut.classList.add('is-ok');
         statut.textContent = 'Message envoyé ✓ Je vous réponds très vite.';

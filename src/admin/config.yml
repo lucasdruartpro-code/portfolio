@@ -156,12 +156,13 @@ collections:
         fields:
           - { label: Titre (ligne 1), name: titre_ligne_1, widget: string }
           - { label: Titre (ligne 2), name: titre_ligne_2, widget: string }
-          - { label: Adresse email, name: email, widget: string, hint: "L'adresse affichée sur le site. Celle qui reçoit les messages du formulaire se règle dans Netlify (Forms, puis Form notifications)." }
+          - { label: Adresse email, name: email, widget: string, hint: "L'adresse affichée sur le site. Celle qui reçoit les messages du formulaire se règle dans Web3Forms (app.web3forms.com)." }
           - label: Formulaire
             name: formulaire
             widget: object
             fields:
               - { label: Objet du mail reçu, name: objet_mail, widget: string }
+              - { label: Clé Web3Forms, name: cle_web3forms, widget: string, hint: "La clé du formulaire sur app.web3forms.com. Elle est publique, ce n'est pas un mot de passe." }
               - { label: Question au-dessus des choix, name: question, widget: string }
               - label: Choix
                 name: sujets
