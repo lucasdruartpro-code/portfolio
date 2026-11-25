@@ -5,7 +5,10 @@
 backend:
   name: github # connexion avec le compte GitHub : seuls les comptes autorisés sur le dépôt peuvent modifier
   repo: lucasdruartpro-code/portfolio
-  branch: main # branche publiée par Netlify
+  branch: main # branche publiée en ligne
+  # La connexion GitHub passe par le petit relais du site Cloudflare (dossier functions/api)
+  base_url: https://lucas-druart.pages.dev
+  auth_endpoint: api/auth
 
 # En local : « npm run cms » puis « npm start », et l'administration écrit directement dans les fichiers
 local_backend:
