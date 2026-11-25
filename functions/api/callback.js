@@ -8,10 +8,9 @@ function page(statut, contenu) {
 <script>
 (function () {
     var message = ${JSON.stringify(message)};
-    // Seuls ces sites peuvent recevoir le jeton : le site Cloudflare et, pendant la transition, celui de Netlify
-    var autorises = [window.location.origin, "https://lucas-druart.netlify.app"];
+    // Seul le site lui-même peut recevoir le jeton
     function recevoir(e) {
-        if (autorises.indexOf(e.origin) === -1) return;
+        if (e.origin !== window.location.origin) return;
         window.opener.postMessage(message, e.origin);
         window.removeEventListener("message", recevoir);
     }
