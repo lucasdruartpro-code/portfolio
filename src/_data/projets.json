@@ -3,17 +3,18 @@
     {
       "nom": "Sortir !",
       "type": "Application mobile · UX/UI · 2026",
-      "adresse": "sortir — app mobile",
+      "adresse": "sortir — app & landing page",
       "lien": "#",
       "image": "/asset/img/projets/sortir.jpg",
-      "image_alt": "Écran d'accueil de l'application Sortir ! : des idées de sorties pour un groupe, avec le prix par personne",
-      "description": "Application mobile qui aide à trouver une sortie selon son budget, ses envies et son temps libre, avec le prix par personne affiché avant de choisir et un vote du groupe en un clic. Projet individuel : 3 personas, une journey map, puis des wireframes en deux versions.",
+      "image_alt": "Landing page de l'application Sortir ! : le titre Des sorties à plusieurs, sans prise de tête, et deux écrans de l'app sur un dégradé bleu, rose et pêche",
+      "description": "Application mobile pour organiser une sortie à plusieurs sans prise de tête : prix par personne affiché avant de choisir, vote du groupe en un clic, infos claires pour les familles et sorties ouvertes aux personnes seules. Après la recherche (3 personas, journey map, wireframes), j'ai conçu sur Figma le design system, les maquettes et le prototype de l'app, puis sa landing page.",
       "tags": [
         "UX/UI",
-        "Personas",
-        "Journey map",
-        "Whimsical",
-        "Canva"
+        "Figma",
+        "Design system",
+        "Prototype",
+        "Landing page",
+        "Personas"
       ]
     },
     {
