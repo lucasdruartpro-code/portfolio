@@ -766,6 +766,11 @@ summary:focus-visible {
     color: var(--jaune);
 }
 
+/* Bouton pour télécharger le CV */
+.about__cv {
+    margin-top: 40px;
+}
+
 /* ===== 02 Projets ===== */
 .projects__stack {
     display: grid;

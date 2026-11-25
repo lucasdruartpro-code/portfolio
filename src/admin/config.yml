@@ -138,6 +138,7 @@ collections:
           - { label: Lieu, name: lieu, widget: string }
           - { label: École, name: ecole, widget: string }
           - { label: Ce que je recherche, name: statut, widget: string, required: false, hint: "Laisse vide pour ne pas l'afficher." }
+          - { label: CV (PDF), name: cv, widget: file, required: false, hint: "Ajoute le bouton « Télécharger mon CV ». Laisse vide pour le cacher." }
           - label: Chiffres
             name: chiffres
             label_singular: chiffre

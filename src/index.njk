@@ -165,6 +165,10 @@
                         <li><strong class="counter" data-target="{{ chiffre.valeur }}"{% if chiffre.depart %} data-start="{{ chiffre.depart }}"{% endif %}>{{ chiffre.depart or 0 }}</strong>{{ chiffre.libelle }}</li>
                         {% endfor %}
                     </ul>
+
+                    {% if apropos.cv %}
+                    <a href="{{ apropos.cv }}" class="btn btn--plein magnetic about__cv reveal" download="CV-Lucas-Druart.pdf" data-cursor="Télécharger">Télécharger mon CV</a>
+                    {% endif %}
                 </div>
             </div>
         </section>

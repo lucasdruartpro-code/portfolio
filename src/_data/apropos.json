@@ -1,12 +1,28 @@
 {
   "citation": "Créatif avant tout, je conçois des interfaces pensées pour les personnes qui vont les utiliser. Je suis convaincu qu'un bon design ne s'arrête pas à l'esthétique : il doit guider l'utilisateur naturellement. J'aime marier la technique et le visuel pour créer des parcours digitaux fluides, modernes et agréables.",
-  "mots_cles": ["interfaces", "design", "technique", "visuel"],
+  "mots_cles": [
+    "interfaces",
+    "design",
+    "technique",
+    "visuel"
+  ],
   "lieu": "Noyon, France",
   "ecole": "La Manu, Compiègne",
   "statut": "Stage du 26 avril au 18 juin 2027, puis alternance",
   "chiffres": [
-    { "valeur": 15, "libelle": "outils & logiciels" },
-    { "valeur": 3, "libelle": "expériences pro" },
-    { "valeur": 2029, "depart": 2000, "libelle": "diplôme visé" }
-  ]
+    {
+      "valeur": 15,
+      "libelle": "outils & logiciels"
+    },
+    {
+      "valeur": 3,
+      "libelle": "expériences pro"
+    },
+    {
+      "valeur": 2029,
+      "depart": 2000,
+      "libelle": "diplôme visé"
+    }
+  ],
+  "cv": "/asset/cv/lucas-druart-cv.pdf"
 }
