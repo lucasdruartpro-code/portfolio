@@ -921,6 +921,45 @@ summary:focus-visible {
     transform: scale(1.06);
 }
 
+/* Vignettes sous l'image quand le projet en a plusieurs */
+.project__thumbs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 10px;
+    margin: 12px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.project__thumb {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 2px solid var(--ligne);
+    background: var(--nuit-3);
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s, border-color 0.3s;
+}
+
+.project__thumb img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+}
+
+.project__thumb:hover,
+.project__thumb:focus-visible {
+    opacity: 1;
+    border-color: var(--violet);
+}
+
+.project__thumb[aria-pressed="true"] {
+    opacity: 1;
+    border-color: var(--jaune);
+}
+
 /* Planche d'identité Menta One (en attendant l'image du logo) */
 .brand {
     display: flex;

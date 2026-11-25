@@ -389,6 +389,19 @@ formulaire.addEventListener('submit', async (e) => {
     boutonEnvoi.textContent = texteBouton;
 });
 
+// ===== Projets : un clic sur une vignette l'affiche en grand =====
+document.querySelectorAll('.project__thumb').forEach((vignette) => {
+    vignette.addEventListener('click', () => {
+        const media = vignette.closest('.project__media');
+        const grande = media.querySelector('.project__img img');
+        grande.src = vignette.dataset.src;
+        grande.alt = vignette.dataset.alt;
+        media.querySelectorAll('.project__thumb').forEach((autre) => {
+            autre.setAttribute('aria-pressed', autre === vignette ? 'true' : 'false');
+        });
+    });
+});
+
 // ===== Footer : année et heure à Noyon =====
 document.getElementById('annee').textContent = new Date().getFullYear();
 

@@ -23,7 +23,7 @@
       "adresse": "novae — identité esport",
       "lien": "#",
       "image": "/asset/img/projets/novae.jpg",
-      "image_alt": "Maillot conceptuel de l'équipe esport Novae : bleu nuit à motif de constellations, col et manches dorés, logo Æ",
+      "image_alt": "Maillot Novae vu de face, bleu nuit et or, sur fond sombre",
       "description": "Identité visuelle d'une équipe esport fictive : logo, couleurs bleu nuit et or, motif de constellations, puis un maillot conceptuel mis en situation sur des mockups de face et de dos. Projet personnel.",
       "tags": [
         "Branding",
@@ -31,6 +31,20 @@
         "Esport",
         "Photoshop",
         "Illustrator"
+      ],
+      "images": [
+        {
+          "image": "/asset/img/projets/novae-dos.jpg",
+          "alt": "Dos du maillot Novae : pseudo RAZMO, numéro 07 et cadran des constellations"
+        },
+        {
+          "image": "/asset/img/projets/novae-banniere.jpg",
+          "alt": "Bannière Novae Esport : « L'étoile montante de l'esport français »"
+        },
+        {
+          "image": "/asset/img/projets/novae-logo.jpg",
+          "alt": "Logo Novae : monogramme Æ doré sur fond noir"
+        }
       ]
     },
     {

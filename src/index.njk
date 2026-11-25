@@ -190,6 +190,7 @@
                     <div class="project__body">
                         {# Sans adresse (lien vide ou #), l'image n'est pas cliquable #}
                         {% set enLigne = projet.lien and projet.lien != '#' %}
+                        <div class="project__media">
                         <{{ 'a' if enLigne else 'div' }}{% if enLigne %} href="{{ projet.lien }}" target="_blank" rel="noopener" data-cursor="Voir le projet"{% endif %} class="project__screen" data-frame>
                             <span class="project__bar"><i></i><i></i><i></i><em>{{ projet.adresse }}</em></span>
                             {% if projet.image %}
@@ -202,6 +203,16 @@
                             </span>
                             {% endif %}
                         </{{ 'a' if enLigne else 'div' }}>
+                        {# Plusieurs images : des vignettes sous l'image, un clic l'affiche en grand #}
+                        {% if projet.image and projet.images and projet.images.length %}
+                        <ul class="project__thumbs" aria-label="Autres images du projet {{ projet.nom }}">
+                            <li><button type="button" class="project__thumb" aria-pressed="true" data-src="{{ projet.image }}" data-alt="{{ projet.image_alt }}" data-cursor="Voir"><img src="{{ projet.image }}" alt="{{ projet.image_alt }}" loading="lazy"></button></li>
+                            {% for visuel in projet.images %}
+                            <li><button type="button" class="project__thumb" aria-pressed="false" data-src="{{ visuel.image }}" data-alt="{{ visuel.alt }}" data-cursor="Voir"><img src="{{ visuel.image }}" alt="{{ visuel.alt }}" loading="lazy"></button></li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                        </div>
                         <div class="project__info">
                             <p>{{ projet.description }}</p>
                             <ul class="tags">{% for tag in projet.tags %}<li>{{ tag }}</li>{% endfor %}</ul>

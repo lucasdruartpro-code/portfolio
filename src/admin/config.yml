@@ -42,6 +42,14 @@ collections:
               - { label: Tags, name: tags, widget: list, required: false, hint: Sépare les tags par des virgules. }
               - { label: Image, name: image, widget: image, required: false, hint: "Sans image, le site affiche une planche avec le nom et le slogan." }
               - { label: Description de l'image, name: image_alt, widget: string, required: false, hint: Pour les personnes qui n'ont pas accès à l'image. }
+              - label: Autres images
+                name: images
+                widget: list
+                required: false
+                hint: "Affichées en vignettes sous l'image principale. Format conseillé : 1200 × 750."
+                fields:
+                  - { label: Image, name: image, widget: image }
+                  - { label: Description de l'image, name: alt, widget: string }
               - { label: Slogan, name: slogan, widget: string, required: false, hint: Affiché seulement s'il n'y a pas d'image. }
               - { label: Lien du projet, name: lien, widget: string, default: "#", hint: "L'adresse complète, qui commence par https://. Laisse # s'il n'y en a pas encore." }
               - { label: Texte de la barre d'adresse, name: adresse, widget: string, hint: "Le texte affiché au-dessus de l'image, comme le nom du site." }
