@@ -1,6 +1,22 @@
 {
   "liste": [
     {
+      "nom": "Sortir !",
+      "type": "Application mobile · UX/UI · 2026",
+      "adresse": "sortir — app mobile",
+      "lien": "#",
+      "image": "/asset/img/projets/sortir.jpg",
+      "image_alt": "Écran d'accueil de l'application Sortir ! : des idées de sorties pour un groupe, avec le prix par personne",
+      "description": "Application mobile qui aide à trouver une sortie selon son budget, ses envies et son temps libre, avec le prix par personne affiché avant de choisir et un vote du groupe en un clic. Projet individuel : 3 personas, une journey map, puis des wireframes en deux versions.",
+      "tags": [
+        "UX/UI",
+        "Personas",
+        "Journey map",
+        "Whimsical",
+        "Canva"
+      ]
+    },
+    {
       "nom": "Stepforge",
       "type": "E-commerce · 2026",
       "adresse": "stepforge.fr",
@@ -8,7 +24,11 @@
       "image": "/asset/img/projets/stepforge.jpg",
       "image_alt": "Page d'accueil du site Stepforge : une sneaker rouge et noire et le titre Walk the future",
       "description": "Site e-commerce pour une marque de sneakers premium : hero immersif, boutique, bandeau de marques et mise en page responsive.",
-      "tags": ["HTML", "CSS", "Responsive"]
+      "tags": [
+        "HTML",
+        "CSS",
+        "Responsive"
+      ]
     },
     {
       "nom": "Les Étangs H2O",
@@ -18,7 +38,12 @@
       "image": "/asset/img/projets/h2o.jpg",
       "image_alt": "Site des Étangs H2O : photos aériennes des étangs et de pêcheurs avec leurs carpes, titre Les Étangs H2O 60400 Varesnes",
       "description": "Site d'un domaine de pêche à Varesnes : maquette et design system, puis un site que le client met à jour lui-même (actualités, tarifs, galerie) depuis une interface d'administration.",
-      "tags": ["Design system", "Eleventy", "Decap CMS", "Netlify"]
+      "tags": [
+        "Design system",
+        "Eleventy",
+        "Decap CMS",
+        "Netlify"
+      ]
     },
     {
       "nom": "Menta One",
@@ -27,7 +52,12 @@
       "lien": "#",
       "slogan": "One mind, One goal",
       "description": "Logo d'une marque fictive d'accessoires d'entraînement, créé à trois : cahier des charges, valeurs (détermination, discipline, progression), choix graphiques justifiés et analyse sémiologique.",
-      "tags": ["Logo", "Branding", "Sémiologie", "Travail d'équipe"]
+      "tags": [
+        "Logo",
+        "Branding",
+        "Sémiologie",
+        "Travail d'équipe"
+      ]
     }
   ]
 }
