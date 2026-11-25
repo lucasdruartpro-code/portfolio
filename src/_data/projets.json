@@ -15,6 +15,24 @@
         "Prototype",
         "Landing page",
         "Personas"
+      ],
+      "images": [
+        {
+          "image": "/asset/img/projets/sortir-fonctionnalites.jpg",
+          "alt": "Landing page Sortir ! : section Fonctionnalités, quatre cartes (prix par personne, vote du groupe, infos famille, sorties ouvertes)"
+        },
+        {
+          "image": "/asset/img/projets/sortir-etapes.jpg",
+          "alt": "Landing page Sortir ! : section Comment ça marche, trois écrans de l'app pour filtrer, comparer et voter"
+        },
+        {
+          "image": "/asset/img/projets/sortir-avis.jpg",
+          "alt": "Landing page Sortir ! : trois avis d'utilisateurs basés sur les personas"
+        },
+        {
+          "image": "/asset/img/projets/sortir-telecharger.jpg",
+          "alt": "Landing page Sortir ! : appel à télécharger l'app avec les boutons App Store et Google Play"
+        }
       ]
     },
     {
